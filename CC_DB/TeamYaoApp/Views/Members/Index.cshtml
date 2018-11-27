@@ -1,0 +1,47 @@
+﻿@model TeamYaoApp.Models.MembersViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Players</h2>
+
+<p>
+    @Html.ActionLink("Add new Player", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name        
+        </th>
+        <th>
+            Totals
+        </th>
+        <th></th>
+    </tr>
+    @for (int m = 0; m < Model.members.Count; m++)
+    {
+        float totalAmount = 0;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.members[m].FullName)
+                @Html.ActionLink("Edit", "Edit", new { id = Model.members[m].MemberId }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.members[m].MemberId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.members[m].MemberId })
+            </td>
+            @for (int c = 0; c < Model.payments.Count; c++)
+            {
+                if (Model.payments[c].MemberId == Model.members[m].MemberId)
+                {
+                    totalAmount += float.Parse(Model.payments[c].Amount.ToString());
+                }
+            }
+            <td>
+                $@Html.DisplayFor(amount => totalAmount)
+            </td>
+
+
+        </tr>
+    }
+
+</table>

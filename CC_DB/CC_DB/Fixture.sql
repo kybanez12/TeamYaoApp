@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Fixture]
+(
+	[FixtureId] INT IDENTITY(1,1),
+	[Date] DATE NOT NULL,
+	[Time] NVARCHAR(50) NOT NULL,
+	[Venue] NVARCHAR(100) NOT NULL,
+	CONSTRAINT PK_FIX PRIMARY KEY (FixtureId)
+)

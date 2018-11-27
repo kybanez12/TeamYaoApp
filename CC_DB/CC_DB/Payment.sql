@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Payment]
+(
+	[PaymentId] INT IDENTITY(1,1),
+	[FixtureId] INT NOT NULL,
+	[MemberId] INT NOT NULL,
+	[Amount] DECIMAL(15,2),
+	CONSTRAINT PK_PAY PRIMARY KEY (PaymentId), 
+	CONSTRAINT FK_FIX FOREIGN KEY (FixtureId) REFERENCES Fixture (FixtureId),
+	CONSTRAINT FK_MEM FOREIGN KEY (MemberId) REFERENCES Member (MemberId),
+)

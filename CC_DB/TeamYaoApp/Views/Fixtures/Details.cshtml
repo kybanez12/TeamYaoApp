@@ -1,0 +1,54 @@
+﻿@model TeamYaoApp.Models.FixtureDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fixture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fixture ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.game.FixtureId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.game.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.game.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.game.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.game.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.game.Venue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.game.Venue)
+        </dd>
+        <dt>
+            Payer
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pay[0].MemberId)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.game.FixtureId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
